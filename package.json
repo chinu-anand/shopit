@@ -1,0 +1,21 @@
+{
+  "name": "shopit",
+  "version": "1.0.0",
+  "description": "Full eCommerce web app built using MERN",
+  "main": "server.js",
+  "scripts": {
+    "start": "node backend/server.js",
+    "dev": "set NODE_ENV=DEVELOPMENT & nodemon backend/server",
+    "prod": "set NODE_ENV=PRODUCTION & nodemon backend/server"
+  },
+  "author": "Chinu Anand",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "mongoose": "^6.6.5"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.20"
+  }
+}
