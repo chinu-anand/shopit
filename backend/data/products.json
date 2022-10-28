@@ -1,0 +1,87 @@
+[
+    {
+        "name": "Sandisk Pendrive 32Gb",
+        "price": "2500",
+        "description": "Ultra fast cards",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/sandisk32gb",
+                "url": "https://www.reliancedigital.in/medias/Sandisk-PDCZ50-032GB-B35-Pen-Drive-490998917-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzA0NTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDIyL2g2YS85MjgxNzk1MDMxMDcwLmpwZ3xmMDFiOWMzODc5ZmViMzY4MjYwOGYxMzRhMDhlZWRmZDhjYjE3MTE0NDMzMzliNDM3YTFkYWI2ZWFmNGVjZjlk"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Ebay",
+        "stock": 50,
+        "numOfReviews": 32,
+        "reviews": []
+    },
+    {
+        "name": "Philips Trimmer BT3100",
+        "price": "1800",
+        "description": "Power Effiecient Trimmer",
+        "ratings": 4.9,
+        "images": [
+            {
+                "public_id": "products/philipsbt3100",
+                "url": "https://www.reliancedigital.in/medias/Sandisk-PDCZ50-032GB-B35-Pen-Drive-490998917-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzA0NTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDIyL2g2YS85MjgxNzk1MDMxMDcwLmpwZ3xmMDFiOWMzODc5ZmViMzY4MjYwOGYxMzRhMDhlZWRmZDhjYjE3MTE0NDMzMzliNDM3YTFkYWI2ZWFmNGVjZjlk"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Ebay",
+        "stock": 50,
+        "numOfReviews": 32,
+        "reviews": []
+    },
+    {
+        "name": "HP Victus Ryzen 5 6800H, 8gb RAM, 512gb SSD, Windows 11",
+        "price": "65000",
+        "description": "Excellent Gaming Laptop in Budget",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/hpvictus",
+                "url": "https://www.reliancedigital.in/medias/Sandisk-PDCZ50-032GB-B35-Pen-Drive-490998917-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzA0NTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDIyL2g2YS85MjgxNzk1MDMxMDcwLmpwZ3xmMDFiOWMzODc5ZmViMzY4MjYwOGYxMzRhMDhlZWRmZDhjYjE3MTE0NDMzMzliNDM3YTFkYWI2ZWFmNGVjZjlk"
+            }
+        ],
+        "category": "Laptops",
+        "seller": "HP",
+        "stock": 50,
+        "numOfReviews": 32,
+        "reviews": []
+    },
+    {
+        "name": "MamaEarth Ubtann FaceWash",
+        "price": "500",
+        "description": "Anti-tan face wash for both men and women.",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/meubtaan",
+                "url": "https://www.reliancedigital.in/medias/Sandisk-PDCZ50-032GB-B35-Pen-Drive-490998917-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzA0NTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDIyL2g2YS85MjgxNzk1MDMxMDcwLmpwZ3xmMDFiOWMzODc5ZmViMzY4MjYwOGYxMzRhMDhlZWRmZDhjYjE3MTE0NDMzMzliNDM3YTFkYWI2ZWFmNGVjZjlk"
+            }
+        ],
+        "category": "Beauty",
+        "seller": "MamaEarth",
+        "stock": 50,
+        "numOfReviews": 32,
+        "reviews": []
+    },
+    {
+        "name": "Xiaomi Redmi Note 10 Pro (6gb,128gb)",
+        "price": "15000",
+        "description": "Impressive Cameras with Amoled Display for day to day work",
+        "ratings": 4.5,
+        "images": [
+            {
+                "public_id": "products/note10pro",
+                "url": "https://www.reliancedigital.in/medias/Sandisk-PDCZ50-032GB-B35-Pen-Drive-490998917-i-1-1200Wx1200H?context=bWFzdGVyfGltYWdlc3wyMzA0NTF8aW1hZ2UvanBlZ3xpbWFnZXMvaDIyL2g2YS85MjgxNzk1MDMxMDcwLmpwZ3xmMDFiOWMzODc5ZmViMzY4MjYwOGYxMzRhMDhlZWRmZDhjYjE3MTE0NDMzMzliNDM3YTFkYWI2ZWFmNGVjZjlk"
+            }
+        ],
+        "category": "Electronics",
+        "seller": "Xiaomi",
+        "stock": 50,
+        "numOfReviews": 32,
+        "reviews": []
+    }
+]

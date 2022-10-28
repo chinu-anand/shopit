@@ -1,5 +1,7 @@
 const mongoose = require('mongoose');
 
+
+// Define schema for the products.
 const productSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -20,7 +22,7 @@ const productSchema = new mongoose.Schema({
         required: [true, 'Please enter product description'],
     },
 
-    ratings: { 
+    ratings: {
         type: Number,
         defaultValue: 0,
     },
@@ -47,7 +49,7 @@ const productSchema = new mongoose.Schema({
             values: [
                 'Electronics',
                 'Cameras',
-                'Laptop',
+                'Laptops',
                 'Accessories',
                 'Headphones',
                 'Food',
@@ -55,35 +57,36 @@ const productSchema = new mongoose.Schema({
                 'Clothes',
                 'Shoes',
                 'Home',
+                'Beauty',
             ],
 
             message: 'Please select a category'
         }
     },
 
-    seller:{
+    seller: {
         type: String,
         required: [true, 'Please select product seller'],
     },
 
-    stock:{
+    stock: {
         type: Number,
         required: [true, 'Please select product stock'],
         maxlength: [5, 'Product stock cannot be more than 5']
     },
 
-    numOfReviews:{
+    numOfReviews: {
         type: Number,
         default: 0,
     },
 
-    reviews:[
+    reviews: [
         {
             name: {
                 type: String,
                 required: true,
             },
-            rating:{
+            rating: {
                 type: Number,
                 required: true,
             },
@@ -94,7 +97,7 @@ const productSchema = new mongoose.Schema({
         }
     ],
 
-    createdAt:{
+    createdAt: {
         type: Date,
         default: Date.now,
     },
