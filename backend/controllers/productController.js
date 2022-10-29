@@ -44,4 +44,35 @@ exports.getSingleProduct = async (req, res, next) => {
     })
 }
 
+// Update product => /api/v1/product/:id
+exports.updateProduct = async (req, res, next) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
+
+    if (!isValidId) {
+        return res.status(404).json({
+            success: false,
+            message: 'Product not found'
+        })
+    }
+
+    let product = await Product.findById(req.params.id);
+    if (!product) {
+        return res.status(404).json({
+            success: false,
+            message: 'Product not found'
+        })
+    }
+
+    product = await Product.findByIdAndUpdate(req.params.id, req.body, {
+        new: true,
+        runValidators: true,
+        useFindandModify: false
+    });
+
+    res.status(200).json({
+        success: true,
+        product
+    });
+}
+
 // Delete a product => /api/v1/admin/product/:id
