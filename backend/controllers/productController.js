@@ -76,3 +76,27 @@ exports.updateProduct = async (req, res, next) => {
 }
 
 // Delete a product => /api/v1/admin/product/:id
+
+exports.deleteProduct = async (req, res, next) => {
+    const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
+    if (!isValidId) {
+        return res.status(404).json({
+            success: false,
+            message: 'Product not found'
+        })
+    }
+
+    const product = await Product.findById(req.params.id);
+    if (!product) {
+        return res.status(404).json({
+            success: false,
+            message: 'Product not found'
+        })
+    }
+
+    await product.remove();
+    res.status(200).json({
+        success: true,
+        message: 'Product deleted'
+    });
+}
