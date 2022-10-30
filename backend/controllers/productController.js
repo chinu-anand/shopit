@@ -1,5 +1,6 @@
 const Product = require('../models/product')
 const mongoose = require('mongoose');
+const ErrorHandler = require('../utils/errorHandler');
 
 // Create new Product => /api/v1/products
 
@@ -30,10 +31,7 @@ exports.getSingleProduct = async (req, res, next) => {
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
 
     if (!isValidId) {
-        return res.status(404).json({
-            success: false,
-            message: 'Product not found'
-        })
+        return next(new ErrorHandler('Product not found', 404));
     }
 
     const product = await Product.findById(req.params.id);
