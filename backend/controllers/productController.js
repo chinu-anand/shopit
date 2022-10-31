@@ -1,20 +1,21 @@
 const Product = require('../models/product')
 const mongoose = require('mongoose');
 const ErrorHandler = require('../utils/errorHandler');
+const catchAsyncError = require('../middlewares/catchAsyncErrors');
 
 // Create new Product => /api/v1/products
 
-exports.newProduct = async (req, res, next) => {
+exports.newProduct = catchAsyncError(async (req, res, next) => {
     const product = await Product.create(req.body);
     res.status(201).json({
         success: true,
 
     });
-}
+})
 
 // Display all Products => /api/v1/products
 
-exports.getProducts = async (req, res, next) => {
+exports.getProducts = catchAsyncError(async (req, res, next) => {
 
     const products = await Product.find();
 
@@ -23,11 +24,11 @@ exports.getProducts = async (req, res, next) => {
         count: products.length,
         data: products
     })
-}
+})
 
 // Get Single product => /api/v1/product/:id
 
-exports.getSingleProduct = async (req, res, next) => {
+exports.getSingleProduct = catchAsyncError(async (req, res, next) => {
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
 
     if (!isValidId) {
@@ -40,17 +41,14 @@ exports.getSingleProduct = async (req, res, next) => {
         success: true,
         product
     })
-}
+})
 
 // Update product => /api/v1/product/:id
-exports.updateProduct = async (req, res, next) => {
+exports.updateProduct = catchAsyncError(async (req, res, next) => {
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
 
     if (!isValidId) {
-        return res.status(404).json({
-            success: false,
-            message: 'Product not found'
-        })
+        return next(new ErrorHandler('Product not found', 404));
     }
 
     let product = await Product.findById(req.params.id);
@@ -71,30 +69,25 @@ exports.updateProduct = async (req, res, next) => {
         success: true,
         product
     });
-}
+})
 
 // Delete a product => /api/v1/admin/product/:id
 
-exports.deleteProduct = async (req, res, next) => {
+exports.deleteProduct = catchAsyncError(async (req, res, next) => {
     const isValidId = mongoose.Types.ObjectId.isValid(req.params.id);
     if (!isValidId) {
-        return res.status(404).json({
-            success: false,
-            message: 'Product not found'
-        })
+        return next(new ErrorHandler('Product not found', 404));
     }
 
     const product = await Product.findById(req.params.id);
-    if (!product) {
-        return res.status(404).json({
-            success: false,
-            message: 'Product not found'
-        })
-    }
+
+    // if (!product) {
+    //     return next(new ErrorHandler('Product not found', 404));
+    // }
 
     await product.remove();
     res.status(200).json({
         success: true,
         message: 'Product deleted'
     });
-}
+})
