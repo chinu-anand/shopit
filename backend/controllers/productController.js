@@ -2,7 +2,7 @@ const Product = require('../models/product')
 const mongoose = require('mongoose');
 const ErrorHandler = require('../utils/errorHandler');
 const catchAsyncError = require('../middlewares/catchAsyncErrors');
-const APIFeatures = require('../utils/apiFeatures')
+const APIFeatures = require('../utils/apiFeatures');
 
 // Create new Product => /api/v1/products
 
@@ -17,14 +17,18 @@ exports.newProduct = catchAsyncError(async (req, res, next) => {
 // Display all Products => /api/v1/products?keyword=apple
 
 exports.getProducts = catchAsyncError(async (req, res, next) => {
+    const productCount = await Product.countDocuments();
     const apiFeatures = new APIFeatures(Product.find(), req.query)
         .search()
         .filter()
+        .pagination(3)
+
     const products = await apiFeatures.query;
 
     res.status(200).json({
         success: true,
         count: products.length,
+        productCount,
         data: products
     })
 })
