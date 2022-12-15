@@ -14,16 +14,39 @@ const userSchema = new mongoose.Schema({
         type: String,
         required : [true, "Please enter a email address"],
         unique: true,
-        validate: [validator.validate(isEmail), "Please enter a valid email address"],
+        validate: [validator.validate(isEmail), "Please enter a valid email address"], 
     },
 
     password:{
         type: String,
         required : [true, "Please enter a password"],
         minlength: [8, "Your password must be at least 8 characters"],
+        select: false,
+    },
 
+    avatar:{
+        public_id:{
+            type: String,
+            required: true,
+        },
+        url:{
+            type: String,
+            required: true,
+        }
+    },
 
-    }
+    role:{
+        type: String,
+        default: 'user',
+    },
+
+    createdAt:{
+        type: Date,
+        default : Date.now,
+    },
+
+    resetPasswordToken: String,
+    resetPasswordDate: Date,
 });
 
 module.exports = mongoose.model('User', userSchema);
