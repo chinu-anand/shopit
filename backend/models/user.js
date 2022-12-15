@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 const validator = require('validator');
-const { default: isEmail } = require('validator/lib/isEmail');
+const bcrypt = require('bcryptjs');
 
 
 const userSchema = new mongoose.Schema({
@@ -14,7 +14,7 @@ const userSchema = new mongoose.Schema({
         type: String,
         required : [true, "Please enter a email address"],
         unique: true,
-        validate: [validator.validate(isEmail), "Please enter a valid email address"], 
+        validate: [validator.isEmail, "Please enter a valid email address"], 
     },
 
     password:{
@@ -48,5 +48,14 @@ const userSchema = new mongoose.Schema({
     resetPasswordToken: String,
     resetPasswordDate: Date,
 });
+
+// Encrypting the password before saving
+userSchema.pre('save', async function (next){
+     if(!this.isModified('password')){
+        next();
+     }
+
+     this.password = await bcrypt.hash(this.password, 10);
+})
 
 module.exports = mongoose.model('User', userSchema);
