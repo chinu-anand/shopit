@@ -4,6 +4,7 @@ const catchAsyncError = require('../middlewares/catchAsyncErrors');
 const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
+const jwt = require('jsonwebtoken');
 
 //Register a user => /api/v1/register
 exports.registerUser = catchAsyncError(async (req, res, next) => {
@@ -121,8 +122,26 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
     sendToken(user, 200, res);
 })
 
-// Logout user => /api/v1/logout
+// Get logged in user details => /api/v1/me
+exports.getUserProfile = catchAsyncError(async (req,res,next) =>{
+    const {token} = req.cookies;
 
+    if(!token){
+        return next(new ErrorHandler('Login first to access this resource.', 401));
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    req.user = await User.findById(decoded.id)
+
+    const user = await User.findById(req.user);
+
+    res.status(200).json({
+        success: true,
+        user
+    });
+})
+
+// Logout user => /api/v1/logout
 exports.logoutUser = catchAsyncError(async (req, res, next) => {
     res.cookie('token', null, {
         expires: new Date(Date.now()),
