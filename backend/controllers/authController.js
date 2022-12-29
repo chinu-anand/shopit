@@ -124,15 +124,6 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
 
 // Get logged in user details => /api/v1/me
 exports.getUserProfile = catchAsyncError(async (req,res,next) =>{
-    const {token} = req.cookies;
-
-    if(!token){
-        return next(new ErrorHandler('Login first to access this resource.', 401));
-    }
-
-    const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.user = await User.findById(decoded.id)
-
     const user = await User.findById(req.user);
 
     res.status(200).json({
