@@ -5,6 +5,7 @@ const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
+const { findByIdAndUpdate } = require('../models/user');
 
 //Register a user => /api/v1/register
 exports.registerUser = catchAsyncError(async (req, res, next) => {
@@ -146,6 +147,27 @@ exports.updatePassword = catchAsyncError(async (req,res,next)=>{
     await user.save();
 
     sendToken(user,200,res);
+})
+
+// Update user profile => /api/v1/me/update
+exports.updateProfile = catchAsyncError(async (req,res,next)=>{
+    const newUserData = {
+        name: req.body.name,
+        email: req.body.email
+    }
+
+    // update avatar: TODO
+
+    
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData,{
+        new: true,
+        runValidators:true,
+        useFindAndModify:false
+    })
+
+    res.status(200).json({
+        success: true,
+    })
 })
 
 // Logout user => /api/v1/logout
