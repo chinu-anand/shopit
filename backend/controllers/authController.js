@@ -5,7 +5,6 @@ const sendToken = require('../utils/jwtToken');
 const sendEmail = require('../utils/sendEmail');
 const crypto = require('crypto');
 const jwt = require('jsonwebtoken');
-const { findByIdAndUpdate } = require('../models/user');
 
 //Register a user => /api/v1/register
 exports.registerUser = catchAsyncError(async (req, res, next) => {
@@ -124,7 +123,7 @@ exports.resetPassword = catchAsyncError(async (req, res, next) => {
 })
 
 // Get logged in user details => /api/v1/me
-exports.getUserProfile = catchAsyncError(async (req,res,next) =>{
+exports.getUserProfile = catchAsyncError(async (req, res, next) => {
     const user = await User.findById(req.user.id);
 
     res.status(200).json({
@@ -134,23 +133,23 @@ exports.getUserProfile = catchAsyncError(async (req,res,next) =>{
 })
 
 // Update password => /api/v1/password/update
-exports.updatePassword = catchAsyncError(async (req,res,next)=>{
+exports.updatePassword = catchAsyncError(async (req, res, next) => {
     const user = await User.findById(req.user.id).select('+password');
 
     const isMathced = await user.comparePassword(req.body.oldPassword);
 
-    if(!isMathced){
-        return next(new ErrorHandler('Old password is incorrect'),400);
+    if (!isMathced) {
+        return next(new ErrorHandler('Old password is incorrect'), 400);
     }
 
     user.password = req.body.password;
     await user.save();
 
-    sendToken(user,200,res);
+    sendToken(user, 200, res);
 })
 
 // Update user profile => /api/v1/me/update
-exports.updateProfile = catchAsyncError(async (req,res,next)=>{
+exports.updateProfile = catchAsyncError(async (req, res, next) => {
     const newUserData = {
         name: req.body.name,
         email: req.body.email
@@ -158,11 +157,11 @@ exports.updateProfile = catchAsyncError(async (req,res,next)=>{
 
     // update avatar: TODO
 
-    
-    const user = await User.findByIdAndUpdate(req.user.id, newUserData,{
+
+    const user = await User.findByIdAndUpdate(req.user.id, newUserData, {
         new: true,
-        runValidators:true,
-        useFindAndModify:false
+        runValidators: true,
+        useFindAndModify: false
     })
 
     res.status(200).json({
@@ -182,3 +181,27 @@ exports.logoutUser = catchAsyncError(async (req, res, next) => {
         message: 'User logged out'
     })
 })
+
+// Get all the users => /api/v1/admin/users
+exports.getAllUsers = catchAsyncError(async (req, res, next) => {
+    const users = await User.find();
+
+    res.status(200).json({
+        success: true,
+        users
+    })
+})
+
+// Get user information => /api/v1/admin/users/:id
+exports.getUserDetail = catchAsyncError(async (req, res, next) => {
+    const user = await User.findById(req.params.id);
+
+    if (!user) {
+        return next(new Error('User not found', 400));
+    }
+
+    res.status(200).json({
+        success: true,
+        user
+    })
+});
