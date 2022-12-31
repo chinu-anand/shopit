@@ -6,10 +6,10 @@ const {
 } = require ('../controllers/orderController');
 
 const {
-    isAuthenticated,
+    isAuthenticatedUser,
     authorizeRoles
-} = require ('../middlewares/auth')
+} = require ('../middlewares/auth');
 
-router.route('/order/new').post(isAuthenticated, newOrder);
+router.route('/order/new').post(isAuthenticatedUser, newOrder);
 
 module.exports = router;
