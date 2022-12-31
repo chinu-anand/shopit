@@ -5,7 +5,8 @@ const {
     newOrder,
     getSingleOrder,
     getMyOrders,
-    getAllOrders
+    getAllOrders,
+    updateOrder
 } = require('../controllers/orderController');
 
 const {
@@ -18,5 +19,6 @@ router.route('/order/:id').get(isAuthenticatedUser, getSingleOrder);
 router.route('/orders/me').get(isAuthenticatedUser, getMyOrders);
 
 router.route('/admin/orders').get(isAuthenticatedUser, authorizeRoles('admin'), getAllOrders);
+router.route('/admin/order/:id').put(isAuthenticatedUser, authorizeRoles('admin'), updateOrder);
 
 module.exports = router;

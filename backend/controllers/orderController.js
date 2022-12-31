@@ -77,3 +77,37 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
         orders
     });
 });
+
+// Update/Process Order -Admin => /api/v1/admin/order/:id
+exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
+    const order = await Order.findById(req.params.id);
+
+    if (order.orderStatus === 'Delivered') {
+        return next(new ErrorHandler('Order already delivered', 400));
+    }
+
+    order.orderStatus = req.body.orderStatus;
+
+    if (order.orderStatus === 'Delivered') {
+        order.orderItems.forEach(async item => {
+            await updateStocks(item.product, item.quantity);
+        })
+
+        order.deliveredAt = Date.now();
+
+        await order.save();
+    }
+
+    res.status(200).json({
+        success: true
+    })
+});
+
+// function to update stocks as order processes
+async function updateStocks(id, quantity) {
+    const product = await Product.findById(id);
+
+    product.stock = product.stock - quantity;
+
+    await product.save({ validateBeforeSave: false });
+}
