@@ -5,34 +5,39 @@ const Navbar = () => {
     <Fragment>
       <nav className='flex justify-between content-center items-center h-16 pl-4 pr-4'>
         <div className='w-1/5'>
-          <div>
-            <img src='./images/logo.jpg' alt="brand logo" className='w-16' />
+          <div className='flex justify-between content-center align-middle w-20'>
+            <img src='./images/logo.png' alt="brand logo" className='w-8 mx-1' />
+            <span className=' text-2xl font-bold text-slate-700'>ShopIT</span>
           </div>
         </div>
 
         <div className='flex w-3/5 align-middle content-center justify-center'>
-          <div className='flex '>
+          <div className='flex align-middle content-center'>
             <input type="text"
               id="search_field"
               placeholder='Enter Product name...'
-              className='rounded-3xl w-96 px-4 mx-2 outline-slate-600 border-2 border-solid' />
+              className='rounded-full w-96 h-8 px-4 mx-2 border-slate-400 border-2 border-solid' />
 
-            <div>
-              <button id="search_btn" className='w-8 h-8'>
-                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6 text-slate-500 rounded-full hover:bg-slate-600 hover:text-white hover:p-1">
-                  <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
-                </svg>
-              </button>
-            </div>
+
+            <button id="search_btn" className='transition ease-in-out delay-100 hover:scale-125 duration-300'>
+              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-8 h-8 hover:bg-amber-yellow hover:text-slate-600 rounded-full bg-slate-600 text-amber-yellow p-1">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z" />
+              </svg>
+            </button>
           </div>
         </div>
 
-        <div className='flex w-1/5 justify-center align-middle content-center'>
-          <button id='login_btn' className=' text-center mx-4 bg-slate-600 px-4 py-1 rounded-3xl font-semibold text-white'>Login</button>
-          <button className='flex px-1 py-1'>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#475569" class="w-6 h-6">
-            <path d="M2.25 2.25a.75.75 0 000 1.5h1.386c.17 0 .318.114.362.278l2.558 9.592a3.752 3.752 0 00-2.806 3.63c0 .414.336.75.75.75h15.75a.75.75 0 000-1.5H5.378A2.25 2.25 0 017.5 15h11.218a.75.75 0 00.674-.421 60.358 60.358 0 002.96-7.228.75.75 0 00-.525-.965A60.864 60.864 0 005.68 4.509l-.232-.867A1.875 1.875 0 003.636 2.25H2.25zM3.75 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0zM16.5 20.25a1.5 1.5 0 113 0 1.5 1.5 0 01-3 0z" />
-          </svg><span className='pl-1 text-slate-800'>Cart</span>
+        <div className='flex w-1/5 h-8 justify-center align-middle content-center '>
+          <button id='login_btn' className='text-center mx-4 bg-slate-600 px-4 py-1 rounded-3xl font-semibold text-amber-yellow transition ease-in-out delay-100 hover:scale-110 duration-300 hover:bg-amber-yellow hover:text-slate-600'>
+            Login
+          </button>
+
+          <button id='cart_btn' className='text-center mx-4 bg-slate-600 px-4 py-1 rounded-3xl font-semibold text-amber-yellow transition ease-in-out delay-100 hover:scale-110 duration-300 hover:bg-amber-yellow hover:text-slate-600'>
+            {/* <span>           */}
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" className="w-6 h-6">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 3h1.386c.51 0 .955.343 1.087.835l.383 1.437M7.5 14.25a3 3 0 00-3 3h15.75m-12.75-3h11.218c1.121-2.3 2.1-4.684 2.924-7.138a60.114 60.114 0 00-16.536-1.84M7.5 14.25L5.106 5.272M6 20.25a.75.75 0 11-1.5 0 .75.75 0 011.5 0zm12.75 0a.75.75 0 11-1.5 0 .75.75 0 011.5 0z" />
+            </svg>
+            {/* </span> */}
           </button>
         </div>
       </nav>
