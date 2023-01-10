@@ -1,9 +1,9 @@
 import React, { Fragment } from 'react'
 
-const Navbar = () => {
+const Header = () => {
   return (
     <Fragment>
-      <nav className='flex justify-between content-center items-center h-16 pl-4 pr-4'>
+      <header className='flex justify-between content-center items-center h-16 pl-4 pr-4 shadow-sm shadow-amber-yellow'>
         <div className='w-1/5'>
           <div className='flex justify-between content-center align-middle w-20'>
             <img src='./images/logo.png' alt="brand logo" className='w-8 mx-1' />
@@ -16,7 +16,7 @@ const Navbar = () => {
             <input type="text"
               id="search_field"
               placeholder='Enter Product name...'
-              className='rounded-full w-96 h-8 px-4 mx-2 border-slate-400 border-2 border-solid' />
+              className='rounded-full w-4/5 h-8 px-4 mx-2 border-slate-400 border-2 border-solid' />
 
 
             <button id="search_btn" className='transition ease-in-out delay-100 hover:scale-125 duration-300'>
@@ -40,9 +40,9 @@ const Navbar = () => {
             {/* </span> */}
           </button>
         </div>
-      </nav>
+      </header>
     </Fragment>
   )
 }
 
-export default Navbar
+export default Header
