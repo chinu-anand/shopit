@@ -79,7 +79,7 @@ const Header = () => {
                             </div>
                             <span className="text-white">|</span>
                             <div className="menu-links">
-                                <div className='d-flex align-items-center gap-15'>
+                                <div className='d-flex align-items-center gap-30'>
                                     <NavLink>Today's Deals</NavLink>
                                     <NavLink>Bestsellers</NavLink>
                                     <NavLink>New Releases</NavLink>
