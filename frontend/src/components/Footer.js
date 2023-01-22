@@ -4,7 +4,6 @@ import {BsHouse, BsTelephone, BsEnvelope, BsLinkedin, BsGithub, BsInstagram, BsT
 
 const Footer = () => {
     return <>
-        <div className="mt-auto">
             <footer className="py-4 px-4">
                 <div className="container-xxl">
                     <div className="row">
@@ -84,7 +83,6 @@ const Footer = () => {
                     </div>
                 </div>
             </footer>
-        </div>
     </>
 }
 
