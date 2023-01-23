@@ -1,6 +1,8 @@
 import React from 'react';
 import {FaShippingFast, FaGift, FaHeadphones, FaRegCreditCard} from 'react-icons/fa'
 import {TbDiscount2} from 'react-icons/tb'
+import Marquee from "react-fast-marquee";
+import ProductCard from "../components/ProductCard";
 
 const Home = () => {
     return <>
@@ -10,13 +12,13 @@ const Home = () => {
                     <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
                         <div className="carousel-inner">
                             <div className="carousel-item active">
-                                <img src="/images/catbanner-01_upscaled.jpg" className="d-block w-100" alt="..." />
+                                <img src="/images/sale-banner-1.png" className="d-block w-100" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="/images/catbanner-02.jpg" className="d-block w-100" alt="..." />
+                                <img src="/images/sale-banner-2.png" className="d-block w-100" alt="..." />
                             </div>
                             <div className="carousel-item">
-                                <img src="/images/catbanner-04.jpg" className="d-block w-100" alt="..." />
+                                <img src="/images/sale-banner-3.png" className="d-block w-100" alt="..." />
                             </div>
                         </div>
                         <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
@@ -132,6 +134,51 @@ const Home = () => {
                                 <img src="/images/camera.jpg" alt="laptop"/>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section className="marquee-wrapper py-4 px-4">
+            <div className="container-xxl">
+                <div className="row">
+                    <div className="col-12">
+                        <Marquee className="marquee-inner-wrapper card-wrapper">
+                            <div className="d-flex">
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-01.png" alt="brand"/>
+                                </div>
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-02.png" alt="brand"/>
+                                </div>
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-03.png" alt="brand"/>
+                                </div>
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-04.png" alt="brand"/>
+                                </div>
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-05.png" alt="brand"/>
+                                </div>
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-06.png" alt="brand"/>
+                                </div >
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-07.png" alt="brand"/>
+                                </div>
+                                <div className="mx-4 w-25">
+                                    <img src="/images/brand-08.png" alt="brand"/>
+                                </div>
+                            </div>
+                        </Marquee>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section className="featured-product py-4 px-4">
+            <div className="container-xxl">
+                <div className="row">
+                    <div className="col-12">
+                        <ProductCard/>
                     </div>
                 </div>
             </div>

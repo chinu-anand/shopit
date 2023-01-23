@@ -144,4 +144,32 @@ footer:not(:first-child){
   height: 70vh;
   object-fit: cover;
 }
+
+.card-wrapper{
+  background-color: white;
+  box-shadow: 0 0 10px #0000001a;
+  border-radius: 10px;
+}
 /* Home Wrapper Ends Here */
+
+/* Product Card Starts here */
+
+.product-card{
+  background-color: white;
+  padding: 16px;
+  width: 18rem;
+  border-radius: 10px;
+  box-shadow: 0 0 5px #0000001a;
+}
+
+.brand{
+  color: #bf4800;
+  font-size: 1rem;
+}
+
+.product-card .product-image img{
+  width: 100%;
+  height: auto;
+}
+
+/* Product Card Ends here */
