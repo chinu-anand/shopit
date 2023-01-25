@@ -6,7 +6,7 @@ import ProductCard from "../components/ProductCard";
 
 const Home = () => {
     return <>
-        <section className="home-carousel py-4 px-4">
+        <section className="home-wrapper-1  home-carousel py-4 px-4">
             <div className="container-xxl">
                 <div className="row">
                     <div id="carouselExampleControls" className="carousel slide" data-bs-ride="carousel">
@@ -31,6 +31,22 @@ const Home = () => {
                             <span className="carousel-control-next-icon" aria-hidden="true"></span>
                             <span className="visually-hidden">Next</span>
                         </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section className="featured-product py-4 px-4">
+            <div className="container-xxl">
+                <div className="row">
+                    <h3 className="pb-3">Popular Collection</h3>
+                    <div className="col-12 d-flex overflow-auto">
+                        <ProductCard/>
+                        <ProductCard/>
+                        <ProductCard/>
+                        <ProductCard/>
+                        <ProductCard/>
+                        <ProductCard/>
+                        <ProductCard/>
                     </div>
                 </div>
             </div>
@@ -170,15 +186,6 @@ const Home = () => {
                                 </div>
                             </div>
                         </Marquee>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <section className="featured-product py-4 px-4">
-            <div className="container-xxl">
-                <div className="row">
-                    <div className="col-12">
-                        <ProductCard/>
                     </div>
                 </div>
             </div>
