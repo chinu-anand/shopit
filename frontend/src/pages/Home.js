@@ -3,9 +3,11 @@ import {FaShippingFast, FaGift, FaHeadphones, FaRegCreditCard} from 'react-icons
 import {TbDiscount2} from 'react-icons/tb'
 import Marquee from "react-fast-marquee";
 import ProductCard from "../components/ProductCard";
+import Metadata from "../components/Metadata";
 
 const Home = () => {
     return <>
+        <Metadata title={'Buy Best Products'}/>
         <section className="home-wrapper-1  home-carousel py-4 px-4">
             <div className="container-xxl">
                 <div className="row">
@@ -51,7 +53,7 @@ const Home = () => {
                 </div>
             </div>
         </section>
-        <section className="home-wrapper-1 py-4 px-4">
+        <section className="home-wrapper-1 py-5 px-4">
             <div className="container-xxl">
                 <div className="row">
                     <div className="col-12">
